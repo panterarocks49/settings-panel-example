@@ -26,7 +26,7 @@ const panelConfig = {
                        content: "Button"}},
         {id:          "switch-setting",
          name:        "Switch Test",
-         description: "Test switch component",
+         description: React.createElement("a", {href: "https:roamresearch.com"}, "Show off react components in the description"),
          action:      {type:     "switch",
                        onChange: (evt) => { console.log("Switch!", evt); }}},
         {id:     "input-setting",
@@ -46,12 +46,14 @@ const panelConfig = {
     ]
 };
 
-function onload({extensionAPI}) {
-    console.log(extensionAPI);
+function onload({extensionAPI, ...rest}) {
+    console.log(extensionAPI, rest);
 
     extensionAPI.settings.panel.create(panelConfig);
 
     console.log("Loaded Settings Panel Example");
+    // secondary onunload function, called before the other one
+    return () => console.log("Secondary onunload");
 }
 
 function onunload() {
