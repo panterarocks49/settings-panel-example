@@ -19,6 +19,7 @@ const panelConfig = {
     tabTitle: "Test Ext 1",
     settings: [
         {id:          "button-setting",
+         className:   "ext-settings-panel-button-setting",
          name:        "Button test",
          description: "tests the button",
          action:      {type:    "button",
